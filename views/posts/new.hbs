@@ -1,0 +1,14 @@
+<div class="row justify-content-md-center mt-5">
+  <form method="POST" action="/posts/new">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="title" class="form-control" name="title" id="title" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">Напишите Вашу заголовок</small>
+    </div>
+    <div class="form-group">
+      <label for="body">Ваш текст</label>
+      <textarea class="form-control" id="body" name="body" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success w-100">Create</button>
+  </form>
+</div>

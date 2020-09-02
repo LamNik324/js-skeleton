@@ -1,0 +1,58 @@
+{{#if empty}}
+<h2 class="display-2 text-danger">Sorry, you don't have any posts:(!</h2>
+{{else}}
+<h2 class="display-2 text-success"> All Posts!</h2>
+{{#if userPosts}}
+{{#each userPosts}}
+<div id="{{_id}}" class="row justify-content-md-center mt-5">
+  <ul class="list-group">
+    <li class="list-group-item mr-3"><strong class="text-primary">Title: </strong>{{title}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">User: </strong>{{user}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Body: </strong>{{body}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Created At: </strong>{{createdAt}}</li>
+    {{#if updatedAt}}
+    <li class="list-group-item mr-3"><strong class="text-primary">Updated At: </strong>{{updatedAt}}</li>
+    {{/if}}
+    {{#if isRedictable}}
+    <div class="row justify-content-md-center">
+      <li class="list-group-item"><a class="btn btn-warning" href="/posts/edit/{{_id}}">Edit</a></li>
+      <li class="list-group-item"><a class="btn btn-danger" href="/posts/delete/{{_id}}">
+          <form method="post" action="/posts/delete/{{_id}}" class="inline">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </a>
+      </li>
+    </div>
+    {{/if}}
+  </ul>
+</div>
+{{/each}}
+{{/if}}
+{{#each posts}}
+<div id="{{_id}}" class="row justify-content-md-center mt-5">
+  <ul class="list-group">
+    <li class="list-group-item mr-3"><strong class="text-primary">Title: </strong>{{title}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">User: </strong><a href="/posts/{{user}}">{{user}}</a>
+    </li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Body: </strong>{{body}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Created At: </strong>{{createdAt}}</li>
+    {{#if isRe}}
+    <li class="list-group-item mr-3"><strong class="text-primary">Updated At: </strong>{{updatedAt}}</li>
+    {{/if}}
+    {{#if isRedictable}}
+    <div class="row justify-content-md-center">
+      <li class="list-group-item"><a class="btn btn-warning" href="/posts/edit/{{_id}}">Edit</a></li>
+      <li class="list-group-item"><a class="btn btn-danger" href="/posts/delete/{{_id}}">
+          <form method="post" action="/posts/delete/{{_id}}" class="inline">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </a>
+      </li>
+    </div>
+    {{/if}}
+  </ul>
+</div>
+{{/each}}
+{{/if}}

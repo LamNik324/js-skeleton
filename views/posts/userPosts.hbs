@@ -1,0 +1,21 @@
+<h2 class="display-2 text-success"> All Posts of {{user}}!</h2>
+{{#each oneUserPosts}}
+<div id="{{_id}}" class="row justify-content-md-center mt-5">
+  <ul class="list-group">
+    <li class="list-group-item mr-3"><strong class="text-primary">Title: </strong>{{title}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">User: </strong> {{user}}
+    </li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Body: </strong>{{body}}</li>
+    <li class="list-group-item mr-3"><strong class="text-primary">Created At: </strong>{{createdAt}}</li>
+    {{#if oneUserPosts.updatedAt}}
+    <li class="list-group-item mr-3"><strong class="text-primary">Updated At: </strong>{{updatedAt}}</li>
+    {{/if}}
+    <div class="row justify-content-md-center">
+      {{#if isRedictable}}
+      <li class="list-group-item"><a class="btn btn-warning" href="/posts/edit/{{_id}}">Edit</a></li>
+      <li class="list-group-item"><a class="btn btn-danger" href="/posts/delete/{{_id}}">Delete</a></li>
+    </div>
+    {{/if}}
+  </ul>
+</div>
+{{/each}}
